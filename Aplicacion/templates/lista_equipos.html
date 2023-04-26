@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title_head %}
+<title>Equipos</title>
+{% endblock title_head %}
+
+{% block h1_header %}
+<h1>Listado de Equipos</h1>
+{% endblock h1_header %}
+
+{% block contenido %}
+
+ <p>
+    <form action = {% url 'Aplicacion:Lista Equipos' %} method = "get">
+        {{formulario}}
+        <button>Buscar Equipo</button>
+    </form>
+ </p>
+
+ {% if equipos %}
+ {% for equipo in equipos %}
+    <li>
+     Nombre: {{equipo.Nombre}} - Apodo: {{equipo.Apodo}} - Dt: {{equipo.Dt}} - Año de creacion: {{equipo.Año_de_Creacion}}
+    </li>
+    {% endfor %}
+
+{% else %}
+    <h2>No hay datos</h2>
+{% endif %}
+
+{% endblock contenido %}

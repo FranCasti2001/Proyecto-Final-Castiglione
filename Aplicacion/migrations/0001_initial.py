@@ -18,7 +18,7 @@ class Migration(migrations.Migration):
                 ('nombre', models.CharField(max_length=30)),
                 ('apodo', models.CharField(max_length=30)),
                 ('dt', models.CharField(max_length=30)),
-                ('añodecreacion', models.CharField(max_length=4)),
+                ('Año_de_Creacion', models.CharField(max_length=4)),
             ],
         ),
     ]
