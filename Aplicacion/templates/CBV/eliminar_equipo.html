@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title_head %}
+<title>Eliminar Equipo</title>
+{% endblock title_head %}
+
+{% block h1_header %}
+<h1>Eliminar Equipo</h1>
+{% endblock h1_header %}
+
+{% block contenido %}
+<form action = {% url 'Aplicacion:Eliminar Equipos' equipo.id%} method = "POST">
+	{% csrf_token %}
+	<p>¿Quieres eliminar a {{equipo.nombre}}?</p>
+	<button>Eliminar</button>
+</form>
+{% endblock contenido %}

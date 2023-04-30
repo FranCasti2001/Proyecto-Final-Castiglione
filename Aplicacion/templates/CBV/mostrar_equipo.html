@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title_head %}
+<title>Equipo</title>
+{% endblock title_head %}
+
+{% block h1_header %}
+<h1>{{equipo.nombre}}</h1>
+{% endblock h1_header %}
+
+{% block contenido %}
+
+<ul>
+    <li>Nombre: {{equipo.nombre}}</li>
+    <li>Apodo: {{equipo.apodo}}</li>
+    <li>Dt: {{equipo.dt}}</li>
+    <li>Año de creacion: {{equipo.anio_de_creacion}}</li>
+</ul>
+<p>
+    <button>
+    <a class="navbar-brand" href={% url 'Aplicacion:Modificar Equipos' equipo.id%}>Modificar</a>
+    </button>
+    <button>
+    <a class="navbar-brand" href={% url 'Aplicacion:Eliminar Equipos' equipo.id%}>Eliminar</a>
+    </button>
+</p>
+{% endblock contenido %}

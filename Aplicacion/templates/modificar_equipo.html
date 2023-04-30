@@ -1,17 +1,17 @@
 {% extends 'base.html' %}
 
 {% block title_head %}
-<title>Agregar Información</title>
+<title>Modificar Información</title>
 {% endblock title_head %}
 
 {% block h1_header %}
-<h1>Agregar Información</h1>
+<h1>Modificar Información</h1>
 {% endblock h1_header %}
 
 {% block contenido %}
-<form action = {% url 'Aplicacion:Agregar Información' %} method = "POST">
+<form action = {% url 'Aplicacion:Modificar Equipos' id_equipo%} method = "POST">
 	{% csrf_token %}
 	{{formulario}}
-	<button>Agregar</button>
+	<button>Modificar</button>
 </form>
 {% endblock contenido %}

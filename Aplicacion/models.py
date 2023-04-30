@@ -2,10 +2,10 @@ from django.db import models
 
 class Equipo(models.Model):
     
-    Nombre = models.CharField (max_length = 30)
-    Apodo = models.CharField (max_length = 30)
-    Dt = models.CharField (max_length = 30)
-    Año_de_Creacion = models.IntegerField ()
+    nombre = models.CharField (max_length = 30)
+    apodo = models.CharField (max_length = 30)
+    dt = models.CharField (max_length = 30)
+    anio_de_creacion = models.IntegerField ()
     
     def __str__(self):
-        return f'{self.Nombre}'
+        return f'Nombre del equipo:{self.nombre} - Apodo del equipo: {self.apodo} - Dt del equipo: {self.dt} - Año de creación: {self.anio_de_creacion}'

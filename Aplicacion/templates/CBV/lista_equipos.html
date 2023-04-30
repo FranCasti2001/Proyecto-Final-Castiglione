@@ -10,14 +10,8 @@
 
 {% block contenido %}
 <a class="navbar-brand" href={% url 'Aplicacion:Crear Equipo' %}>Crear Equipo</a>
- <p>
-    <form action = {% url 'Aplicacion:Lista Equipos'%} method = "get">
-        {{formulario}}
-        <button>Buscar Equipo</button>
-    </form>
- </p>
- {% if equipos %}
- {% for equipo in equipos %}
+ {% if object_list %}
+ {% for equipo in object_list %}
     <li>
         <a class="navbar-brand" href={% url 'Aplicacion:Mostrar Equipos' equipo.id%}>{{equipo}}</a>
     <button>
