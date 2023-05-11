@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title_head %}
+<title>Registrese</title>
+{% endblock title_head %}
+
+{% block h1_header %}
+<h1>Registrese</h1>
+{% endblock h1_header %}
+
+{% block contenido %}
+
+{% if form.errors%}
+<p style = 'color = red'>Hay errores</p>
+{% endif %}
+
+<form action= {% url 'usuarios:Registro' %} method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Registrar</button>
+</form>
+
+{% endblock contenido %}

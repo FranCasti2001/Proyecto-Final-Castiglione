@@ -8,4 +8,4 @@ class Equipo(models.Model):
     anio_de_creacion = models.IntegerField ()
     
     def __str__(self):
-        return f'Nombre del equipo:{self.nombre} - Apodo del equipo: {self.apodo} - Dt del equipo: {self.dt} - Año de creación: {self.anio_de_creacion}'
+        return f'Nombre del equipo: {self.nombre} - Apodo del equipo: {self.apodo} - Dt del equipo: {self.dt} - Año de creación: {self.anio_de_creacion}'

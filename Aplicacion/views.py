@@ -4,6 +4,8 @@ from Aplicacion.forms import EquipoFormulario, BuscarEquipo, FormularioEditarEqu
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.detail import DetailView
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.urls import reverse_lazy
 
 def vista(request):
     return render(request, 'index.html')
@@ -71,19 +73,19 @@ class ListaEquipos(ListView):
 class CrearEquipo(CreateView):
     model = Equipo
     template_name = 'CBV/crear_equipo.html'
-    success_url = '/equipos/lista-equipos/'
+    success_url = reverse_lazy('Aplicacion:Lista Equipos')
     fields = ['nombre', 'apodo', 'dt', 'anio_de_creacion']
     
-class EditarEquipo(UpdateView):
+class EditarEquipo(LoginRequiredMixin, UpdateView):
     model = Equipo
     template_name = 'CBV/modificar_equipo.html'
-    success_url = '/equipos/lista-equipos/'
+    success_url = reverse_lazy('Aplicacion:Lista Equipos')
     fields = ['nombre', 'apodo', 'dt', 'anio_de_creacion']
     
-class EliminarEquipo(DeleteView):
+class EliminarEquipo(LoginRequiredMixin, DeleteView):
     model = Equipo
     template_name = 'CBV/eliminar_equipo.html'
-    success_url = '/equipos/lista-equipos/'
+    success_url = reverse_lazy('Aplicacion:Lista Equipos')
     
 class MostrarEquipo(DetailView):
     model = Equipo

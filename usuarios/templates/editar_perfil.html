@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title_head %}
+<title>Editar Usuario</title>
+{% endblock title_head %}
+
+{% block h1_header %}
+<h1>Editar Usuario</h1>
+{% endblock h1_header %}
+
+{% block contenido %}
+
+{% if form.errors%}
+<p style = 'color = red'>Hay errores</p>
+{% endif %}
+
+<form action= {% url 'usuarios:Editar' %} method="POST" enctype = 'multipart/form-data'>
+    {% csrf_token %}
+    <table>
+    {{ form.as_p }}
+    </table>
+    <button type = "button"><a class="navbar-brand" href = {% url 'usuarios:CambioContrasenia' %}>Cambiar Contrasenia</a></button>
+    <button type="submit">Guardar</button>
+</form>
+
+{% endblock contenido %}
