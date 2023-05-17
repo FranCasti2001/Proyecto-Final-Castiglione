@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title_head %}
+<title>Eliminar Paleta</title>
+{% endblock title_head %}
+
+{% block h1_header %}
+<h1>Eliminar Paleta</h1>
+{% endblock h1_header %}
+
+{% block contenido %}
+
+<form action = {% url 'Aplicacion:borrar_paletas' paleta.id %} method = 'post'>
+    {% csrf_token %}
+    <h3>¿Seguro desea eliminar la Paleta {{paleta}}?</h3>
+    <button>Sí, confirmo</button>
+</form>
+
+{% endblock contenido %}

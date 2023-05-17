@@ -9,22 +9,35 @@
 {% endblock h1_header %}
 
 {% block contenido %}
-<a class="navbar-brand" href={% url 'Aplicacion:Crear Equipo' %}>Crear Equipo</a>
+
+<a class="navbar-brand" href={% url 'Aplicacion:crear_equipo' %}>Crear Equipo</a>
+
  {% if object_list %}
+
  {% for equipo in object_list %}
     <li>
-        <a class="navbar-brand" href={% url 'Aplicacion:Mostrar Equipos' equipo.id%}>{{equipo}}</a>
+        <a class="navbar-brand" href={% url 'Aplicacion:mostrar_equipos' equipo.id%}>{{equipo}}
+            {% if equipo.escudo %}
+                <img src = {{equipo.escudo.url}} alt = '' height = '60px'>
+            {% endif %}
+
     <button>
-        <a class="navbar-brand" href={% url 'Aplicacion:Modificar Equipos' equipo.id%}>Modificar</a>
+     <a class="navbar-brand" href={% url 'Aplicacion:modificar_equipos' equipo.id%}>Modificar</a>
     </button>
+
     <button>
-    <a class="navbar-brand" href={% url 'Aplicacion:Eliminar Equipos' equipo.id%}>Eliminar</a>
+     <a class="navbar-brand" href={% url 'Aplicacion:eliminar_equipos' equipo.id%}>Eliminar</a>
     </button>
+
     </li>
     {% endfor %}
 
 {% else %}
     <h2>No hay datos</h2>
 {% endif %}
+
+<button>
+    <a class="navbar-brand" href={% url 'Aplicacion:buscador_equipos'%}>Buscar Equipo</a>
+</button>
 
 {% endblock contenido %}

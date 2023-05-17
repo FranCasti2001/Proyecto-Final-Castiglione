@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title_head %}
+<title>Buscador de Paletas</title>
+{% endblock title_head %}
+
+{% block h1_header %}
+<h1>Buscador de Paletas</h1>
+{% endblock h1_header %}
+
+{% block contenido %}
+
+<form action = {% url 'Aplicacion:buscador_paletas' %} method = "get">
+    {{formulario}}
+    <button>Buscar Equipo</button>
+</form>
+
+{% if paletas %}
+{% for paleta in paletas %}
+   <li >
+    Nombre: {{paleta.nombre}} - Apodo: {{paleta.apodo}} - Dt: {{paleta.dt}} - Año de creacion: {{paleta.anio_de_creacion}} - Dato curioso: {{paleta.dato_curioso | safe}} - Escudo: <img src = {{paleta.escudo.url}} alt = '' height = '60px'>
+   </li>
+   {% endfor %}
+
+{% else %}
+   <h2>No hay datos</h2>
+{% endif %}
+
+{% endblock contenido %}

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title_head %}
+<title>Paleta</title>
+{% endblock title_head %}
+
+{% block h1_header %}
+<h1>Paleta: {{paleta}}</h1>
+{% endblock h1_header %}
+
+{% block contenido %}
+<ul>
+    <li>Nombre: {{paleta.nombre}}</li>
+    <li>Apodo: {{paleta.apodo}}</li>
+    <li>Dt: {{paleta.dt}}</li>
+    <li>Año de Creación: {{paleta.anio_de_creacion}}</li>
+    <li>Dato curioso: {{paleta.dato_curioso | safe}}</li>
+    <li>Escudo: {% if paleta.escudo %}<img src = {{paleta.escudo.url}} alt = '' height = '40px'>{% endif %}</li>  
+
+</ul>
+<a href = {% url 'Aplicacion:modificar_paletas' paleta.id %}>Modificar</a> . <a href = {% url 'Aplicacion:borrar_paletas' paleta.id%}>Eliminar</a>
+
+{% endblock contenido %}

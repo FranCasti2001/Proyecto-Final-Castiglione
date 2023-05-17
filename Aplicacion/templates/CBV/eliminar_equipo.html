@@ -9,7 +9,7 @@
 {% endblock h1_header %}
 
 {% block contenido %}
-<form action = {% url 'Aplicacion:Eliminar Equipos' equipo.id%} method = "POST">
+<form action = {% url 'Aplicacion:eliminar_equipos' equipo.id%} method = "POST">
 	{% csrf_token %}
 	<p>¿Quieres eliminar a {{equipo.nombre}}?</p>
 	<button>Eliminar</button>

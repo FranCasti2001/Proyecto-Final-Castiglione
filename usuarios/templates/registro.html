@@ -14,7 +14,7 @@
 <p style = 'color = red'>Hay errores</p>
 {% endif %}
 
-<form action= {% url 'usuarios:Registro' %} method="POST">
+<form action= {% url 'usuarios:registro' %} method="POST">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">Registrar</button>

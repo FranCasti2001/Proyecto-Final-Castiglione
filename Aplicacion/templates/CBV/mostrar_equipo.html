@@ -15,13 +15,14 @@
     <li>Apodo: {{equipo.apodo}}</li>
     <li>Dt: {{equipo.dt}}</li>
     <li>Año de creacion: {{equipo.anio_de_creacion}}</li>
+    <li>Escudo: <img src = {{equipo.escudo.url}} alt = '' height = '60px'></li>
 </ul>
 <p>
     <button>
-    <a class="navbar-brand" href={% url 'Aplicacion:Modificar Equipos' equipo.id%}>Modificar</a>
+    <a class="navbar-brand" href={% url 'Aplicacion:modificar_equipos' equipo.id%}>Modificar</a>
     </button>
     <button>
-    <a class="navbar-brand" href={% url 'Aplicacion:Eliminar Equipos' equipo.id%}>Eliminar</a>
+    <a class="navbar-brand" href={% url 'Aplicacion:eliminar_equipos' equipo.id%}>Eliminar</a>
     </button>
 </p>
 {% endblock contenido %}

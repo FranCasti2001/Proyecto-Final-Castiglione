@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title_head %}
+<title>Buscador de Equipo</title>
+{% endblock title_head %}
+
+{% block h1_header %}
+<h1>Buscador de Equipo</h1>
+{% endblock h1_header %}
+
+{% block contenido %}
+
+<form action = {% url 'Aplicacion:buscador_equipos' %} method = "get">
+    {{formulario}}
+    <button>Buscar Equipo</button>
+</form>
+
+{% if equipos %}
+{% for equipo in equipos %}
+   <li enctype = 'multipart/form-data'>
+    Nombre: {{equipo.nombre}} - Apodo: {{equipo.apodo}} - Dt: {{equipo.dt}} - Año de creacion: {{equipo.anio_de_creacion}} - Escudo: <img src = {{equipo.escudo.url}} alt = '' height = '60px'>
+   </li>
+   {% endfor %}
+
+{% else %}
+   <h2>No hay datos</h2>
+{% endif %}
+
+{% endblock contenido %}

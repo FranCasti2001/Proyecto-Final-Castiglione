@@ -9,9 +9,11 @@
 {% endblock h1_header %}
 
 {% block contenido %}
-<form action = {% url 'Aplicacion:Modificar Equipos' equipo.id%} method = "POST">
+<table>
+<form action = {% url 'Aplicacion:modificar_equipos' equipo.id%} method = "POST" enctype = 'multipart/form-data'>
 	{% csrf_token %}
 	{{form}}
 	<button>Modificar</button>
 </form>
+</table>
 {% endblock contenido %}

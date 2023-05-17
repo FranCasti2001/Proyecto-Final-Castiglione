@@ -36,17 +36,18 @@ def login_request(request):
 
 def registrar(request):
     if request.method == 'POST':
-            form = CreacionDeUsuario(request.POST)
-            if form.is_valid():
-
-                  username = form.cleaned_data['username']
-                  form.save()
-                  return render(request,"index.html" ,  {"mensaje":"Usuario Creado :)"})
+        form = CreacionDeUsuario(request.POST)
+        if form.is_valid():
+            username = form.cleaned_data['username']
+            form.save()
+            return render(request, "index.html", {"mensaje": "Usuario Creado :)"})
     else:
-        return render(request,"registro.html", {"form":form})
-        
-    form = CreacionDeUsuario()     
-    return render(request,"registro.html", {"form":form})
+        form = CreacionDeUsuario()
+        return render(request, "registro.html", {"form": form})
+
+    form = CreacionDeUsuario()
+    return render(request, "registro.html", {"form": form})
+
 
 @login_required
 def editar_perfil(request):
@@ -58,7 +59,7 @@ def editar_perfil(request):
              request.user.extradata.avatar = form.cleaned_data.get('avatar')
             request.user.extradata.save()
             form.save()
-            return redirect('Aplicacion:Inicio')
+            return redirect('Aplicacion:inicio')
         else:
          return render(request,"editar_perfil.html", {"form":form})
         
@@ -67,4 +68,5 @@ def editar_perfil(request):
 
 class CambioContra(PasswordChangeView):
     template_name = "cambiar_contra.html"
-    success_url = reverse_lazy ("usuarios:Editar")
+    success_url = reverse_lazy ("usuarios:editar")
+    

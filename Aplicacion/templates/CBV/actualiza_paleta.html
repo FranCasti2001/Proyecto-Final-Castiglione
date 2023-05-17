@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title_head %}
+<title>Modificar</title>
+{% endblock title_head %}
+
+{% block h1_header %}
+<h1>Modificar</h1>
+{% endblock h1_header %}
+
+{% block contenido %}
+
+<form action = {% url 'Aplicacion:modificar_paletas' paleta.id %} method = 'post' enctype = 'multipart/form-data'>
+    {% csrf_token %}
+    <table>
+     {{form.media}}
+     {{form}}
+    </table>
+    <button>Modificar</button>
+</form>
+
+{% endblock contenido %}

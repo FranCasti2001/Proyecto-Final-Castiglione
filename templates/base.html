@@ -22,20 +22,21 @@
         <!-- Navigation-->
         <nav class="navbar navbar-light bg-light static-top">
             <div class="container">
-                <a class="navbar-brand" href={% url 'Aplicacion:Inicio' %}>Inicio</a>
-                <a class="navbar-brand" href={% url 'Aplicacion:Lista Equipos' %}>Equipos</a>
+                <a class="navbar-brand" href={% url 'Aplicacion:inicio' %}>Inicio</a>
+                <a class="navbar-brand" href={% url 'Aplicacion:lista_paletas' %}>Paletas</a>
+                <a class="navbar-brand" href={% url 'Aplicacion:lista_equipos' %}>Equipos</a>
                 {% if request.user.is_authenticated %}
 
                 {% if request.user.extradata.avatar %}
                 <img src = {{request.user.extradata.avatar.url}} alt = '' height = '40px'>
                 {% endif %}
                 
-                <a href={% url 'usuarios:Editar' %}>{{request.user.username}}</a>
-                <a class="btn btn-primary" href={% url 'usuarios:Logout' %}>Cerrar Sesión</a>
+                <a href={% url 'usuarios:editar' %}>{{request.user.username}}</a>
+                <a class="btn btn-primary" href={% url 'usuarios:logout' %}>Cerrar Sesión</a>
                
                 {% else %}
-                <a class="btn btn-primary" href={% url 'usuarios:Login' %}>Iniciar Sesión</a>
-                <a class="btn btn-primary" href={% url 'usuarios:Registro' %}>Registrate</a>
+                <a class="btn btn-primary" href={% url 'usuarios:login' %}>Iniciar Sesión</a>
+                <a class="btn btn-primary" href={% url 'usuarios:registro' %}>Registrate</a>
 
                 {% endif %}
             </div>
@@ -63,7 +64,7 @@
                 <div class="row">
                     <div class="col-lg-6 h-100 text-center text-lg-start my-auto">
                         <ul class="list-inline mb-2">
-                            <li class="list-inline-item"><a href="#!">About</a></li>
+                            <li class="list-inline-item"><a href= {% url 'Aplicacion:about' %} >Sobre mí</a></li>
                         </ul>
                     </div>
                     <div class="col-lg-6 h-100 text-center text-lg-end my-auto">

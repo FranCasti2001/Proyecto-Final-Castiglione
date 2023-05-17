@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title_head %}
+<title>Paletas</title>
+{% endblock title_head %}
+
+{% block h1_header %}
+<h1>Listado de Paletas</h1>
+{% endblock h1_header %}
+
+{% block contenido %}
+
+<a href = {% url 'Aplicacion:crear_paletas' %}>Crear Nueva</a>
+
+{% if object_list %}
+
+<ul>
+    {% for paleta in object_list %}
+    <li><a href = {% url 'Aplicacion:detalle_paletas' paleta.id %}>{{paleta}}</a></li>
+    <a href = {% url 'Aplicacion:modificar_paletas' paleta.id %}>Modificar</a> . <a href = {% url 'Aplicacion:borrar_paletas' paleta.id%}>Eliminar</a>
+    {% endfor %}
+</ul>
+{% else %}
+<h3>No se encontraron datos relacionados.</h3>
+{% endif %}
+
+<button>
+    <a class="navbar-brand" href={% url 'Aplicacion:buscador_paletas'%}>Buscar Paletas</a>
+</button>
+
+{% endblock contenido %}
