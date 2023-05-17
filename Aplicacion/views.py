@@ -16,7 +16,7 @@ class ListaEquipos(ListView):
     template_name = 'CBV/lista_equipos.html'
 
     
-class CrearEquipo(CreateView):
+class CrearEquipo(LoginRequiredMixin, CreateView):
     model = Equipo
     template_name = 'CBV/crear_equipo.html'
     success_url = reverse_lazy('Aplicacion:lista_equipos')
@@ -74,7 +74,7 @@ class PaletaDeleteView(LoginRequiredMixin, DeleteView):
     template_name = "CBV/borra_paleta.html"
     success_url = '/paletas/'
     
-##########
+    
 def buscar_equipo(request):
     nombre_a_buscar = request.GET.get('nombre', None)
     

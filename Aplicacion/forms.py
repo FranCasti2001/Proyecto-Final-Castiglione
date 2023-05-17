@@ -17,7 +17,7 @@ class FormularioEditarEquipo(forms.Form):
     anio_de_creacion = forms.IntegerField ()
     escudo = forms.ImageField(required = False)
     
-#########
+
 class BuscarEquipo(forms.Form):
      
     nombre = forms.CharField (max_length = 30, required = False)

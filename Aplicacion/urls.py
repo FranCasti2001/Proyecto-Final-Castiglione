@@ -18,7 +18,6 @@ urlpatterns = [
     path('paletas/crear/', views.PaletaCreateView.as_view(), name = 'crear_paletas'),
     path('paletas/<int:pk>/Modificar/', views.PaletaUpdateView.as_view(), name = 'modificar_paletas'),
     path('paletas/<int:pk>/aliminar/', views.PaletaDeleteView.as_view(), name = 'borrar_paletas'),
-    ############
     path('equipos/buscar', views.buscar_equipo, name = 'buscador_equipos'),
     path('paletas/buscar', views.buscar_paleta, name = 'buscador_paletas'),
 
