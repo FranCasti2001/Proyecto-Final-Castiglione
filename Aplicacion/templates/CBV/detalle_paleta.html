@@ -15,7 +15,7 @@
     <li>Dt: {{paleta.dt}}</li>
     <li>Año de Creación: {{paleta.anio_de_creacion}}</li>
     <li>Dato curioso: {{paleta.dato_curioso | safe}}</li>
-    <li>Escudo: {% if paleta.escudo %}<img src = {{paleta.escudo.url}} alt = '' height = '40px'>{% endif %}</li>  
+    <li>Escudo: <img src = {{paleta.escudo.url}} alt = '' height = '40px'></li>  
 
 </ul>
 <a href = {% url 'Aplicacion:modificar_paletas' paleta.id %}>Modificar</a> . <a href = {% url 'Aplicacion:borrar_paletas' paleta.id%}>Eliminar</a>

@@ -31,7 +31,7 @@
                 <img src = {{request.user.extradata.avatar.url}} alt = '' height = '40px'>
                 {% endif %}
                 
-                <a href={% url 'usuarios:editar' %}>{{request.user.username}}</a>
+                <a href={% url 'usuarios:ver_perfil' %}>{{request.user.username}}</a>
                 <a class="btn btn-primary" href={% url 'usuarios:logout' %}>Cerrar Sesión</a>
                
                 {% else %}

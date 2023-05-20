@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title_head %}
+<title>Ver Perfil</title>
+{% endblock title_head %}
+
+{% block h1_header %}
+<h1>{{user.username}}</h1>
+{% endblock h1_header %}
+
+{% block contenido %}
+<li>Email: {{user.email}}</li>
+<li>Nombre: {{user.first_name}}</li>
+<li>Apellido: {{user.last_name}}</li>
+<li>Descripción: {{user.descripcion | safe}}</li>
+<li>Avatar: {% if request.user.extradata.avatar %} <img src = {{request.user.extradata.avatar.url}} alt = '' height = '40px'>{% endif %}</li>
+
+<a class="btn btn-primary" href={% url 'usuarios:editar' %}>Editar Perfil</a>
+{% endblock contenido %}

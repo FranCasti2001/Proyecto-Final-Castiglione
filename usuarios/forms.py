@@ -3,7 +3,6 @@ from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from django.contrib.auth.models import User
 from ckeditor.fields import RichTextFormField
 
-
 class CreacionDeUsuario(UserCreationForm):
     email = forms.EmailField()
     password1 = forms.CharField(label="Contrasenia", widget=forms.PasswordInput)
@@ -24,8 +23,8 @@ class EdicionDeUsuario(UserChangeForm):
     
     class Meta:
      model = User
-     fields = ['email', 'first_name', 'last_name', 'descripcion', 'avatar'] 
-     
+     fields = ['email', 'first_name', 'last_name', 'descripcion', 'avatar']
+            
 class BuscarPaleta(forms.Form):
      
     nombre = forms.CharField (max_length = 30, required = False)

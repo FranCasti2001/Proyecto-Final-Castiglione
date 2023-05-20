@@ -1,11 +1,12 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth import login, logout, authenticate
+from django.contrib.auth import login, authenticate
 from usuarios.forms import CreacionDeUsuario, EdicionDeUsuario
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.views import PasswordChangeView
 from django.urls import reverse_lazy
 from usuarios.models import ExtraData
+
 
 def login_request(request):
     if request.method == 'POST':
@@ -48,6 +49,8 @@ def registrar(request):
     form = CreacionDeUsuario()
     return render(request, "registro.html", {"form": form})
 
+def ver_perfil(request):
+    return render (request, "ver_perfil.html")
 
 @login_required
 def editar_perfil(request):
@@ -65,6 +68,7 @@ def editar_perfil(request):
         
     form = EdicionDeUsuario(initial = {'avatar':request.user.extradata.avatar}, instance = request.user)     
     return render(request,"editar_perfil.html", {"form":form})
+
 
 class CambioContra(PasswordChangeView):
     template_name = "cambiar_contra.html"
