@@ -60,6 +60,9 @@ def editar_perfil(request):
         if form.is_valid():
             if form.cleaned_data.get('avatar'):
              request.user.extradata.avatar = form.cleaned_data.get('avatar')
+            
+            request.user.extradata.descripcion = form.cleaned_data.get('descripcion')
+            
             request.user.extradata.save()
             form.save()
             return redirect('Aplicacion:inicio')
@@ -68,7 +71,6 @@ def editar_perfil(request):
         
     form = EdicionDeUsuario(initial = {'avatar':request.user.extradata.avatar}, instance = request.user)     
     return render(request,"editar_perfil.html", {"form":form})
-
 
 class CambioContra(PasswordChangeView):
     template_name = "cambiar_contra.html"

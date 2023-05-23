@@ -10,18 +10,18 @@
 
 {% block contenido %}
 
-{% if form.errors%}
-<p style = 'color = red'>Hay errores</p>
+{% if form.errors %}
+<p style="color: red">Hay errores</p>
 {% endif %}
 
-<form action= {% url 'usuarios:editar' %} method="POST" enctype = 'multipart/form-data'>
+<form action="{% url 'usuarios:editar' %}" method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     <table>
-    {{ form.as_p }}
+        {{ form.as_p }}
     </table>
-    <button type = "button"><a class="navbar-brand" href = {% url 'usuarios:cambio_contrasenia' %}>Cambiar Contrasenia</a></button>
+    <button type="button"><a class="navbar-brand" href="{% url 'usuarios:cambio_contrasenia' %}">Cambiar Contraseña</a></button>
     <button type="submit">Guardar</button>
-    <button><a class="navbar-brand" href={% url 'Aplicacion:inicio' %}>Inicio</a></button>
+    <button><a class="navbar-brand" href="{% url 'Aplicacion:inicio' %}">Inicio</a></button>
 </form>
 
 {% endblock contenido %}
